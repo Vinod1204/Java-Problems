@@ -1,0 +1,28 @@
+Perform the following operations on a and b and print their respective outputs in different lines.
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+
+import java.lang.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+    int a=sc.nextInt();
+    int b=sc.nextInt();
+    //1. Addition
+    int addition=a+b;
+    System.out.println(addition);
+    //2. Subtraction
+    int subtraction=a-b;
+    System.out.println(subraction);
+    //3. Multiplication
+    int multiply=a*b;
+    System.out.println(multiply);
+    //4. Division
+    int division=a/b;
+    System.out.println(division);
+    }
+    }
