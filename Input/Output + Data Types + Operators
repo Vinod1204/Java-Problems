@@ -1,0 +1,50 @@
+INPUT & OUTPUT :
+
+Java's I/O package includes a variety of Streams that enable users to carry out all input-output activities. 
+To completely execute I/O operations, these streams support all object types, data types, character types, files, etc.
+
+The standard input stream, known as system.in, is used to read characters from the keyboard and other standard input devices.
+System.out is the standard output stream used to display a program's output on an output device, such as a computer screen.
+The many print functions that we employ to output statements are listed below:
+
+Java's print() function is used to show text on the console. This method receives this text as a parameter in the form of a String. With this technique, the text is printed on the console and the cursor is left where it is at the console. 
+
+Stream class	                 Description
+BufferedInputStream	           It is used for Buffered Input Stream.
+DataInputStream	               It contains method for reading java standard datatypes.
+FileInputStream	               This is used to reads from a file
+InputStream	                   This is an abstract class that describes stream input.
+PrintStream	                   This contains the most used print() and println() method
+BufferedOutputStream	         This is used for Buffered Output Stream.
+DataOutputStream	             This contains method for writing java standard data types.
+FileOutputStream	             This is used to write to a file.
+OutputStream	                 This is an abstract class that describe stream output.
+
+DATA TYPES:
+
+The different sizes and values that can be stored in the variable are specified by the data types. Java supports two different kinds of data types:
+
+boolean, char, byte, short, int, long, float, and double are examples of primitive data types.
+Data types that aren't primitive: Arrays, Classes, and Interfaces are examples of non-primitive data types.
+
+There are 8 types of primitive data types:
+
+boolean data type
+byte data type
+char data type
+short data type
+int data type
+long data type
+float data type
+double data type
+
+OPERATORS:
+
+   Operator	          Name	                Description                             	Example
+      +	            Addition	        Adds together two values        	               x + y
+      -	          Subtraction	        Subtracts one value from another    	           x - y
+      *       	Multiplication      	Multiplies two values                            x * y
+      /	            Division	        Divides one value by another                   	 x / y
+      %	            Modulus         	Returns the division remainder	                 x % y
+     ++	           Increment	        Increases the value of a variable by 1	         ++x
+     --	           Decrement        	Decreases the value of a variable by 1	         --x
