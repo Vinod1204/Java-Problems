@@ -1,0 +1,38 @@
+JAVA LOOPS:
+
+The Java for loop is used to iterate a part of the program several times. If the number of iteration is fixed, it is recommended to use for loop.
+
+Java Simple for Loop:
+
+A simple for loop is the same as C/C++. We can initialize the variable, check condition and increment/decrement value. It consists of four parts:
+
+Initialization: It is the initial condition which is executed once when the loop starts. Here, we can initialize the variable, or we can use an already initialized variable. It is an optional condition.
+Condition:      It is the second condition which is executed each time to test the condition of the loop. It continues execution until the condition is false. It must return boolean value either true or false. It is an optional condition.
+Increment/Decrement: It increments or decrements the variable value. It is an optional condition.
+Statement:      The statement of the loop is executed each time until the second condition is false.
+
+while loop: A while loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition. 
+The while loop can be thought of as a repeating if statement. 
+Syntax:
+while (boolean condition)
+{
+   loop statements...
+}
+
+For loop: for loop provides a concise way of writing the loop structure. 
+Unlike a while loop, a for statement consumes the initialization, condition and increment/decrement in one line thereby providing a shorter, 
+easy to debug structure of looping. 
+Syntax:
+for (initialization condition; testing condition;increment/decrement)
+{
+    statement(s)
+}
+
+do while: do while loop is similar to while loop with only difference that it checks for condition after executing the statements, 
+and therefore is an example of Exit Control Loop. 
+Syntax:
+do
+{
+    statements..
+}
+while (condition);
