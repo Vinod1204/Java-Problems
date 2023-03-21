@@ -1,0 +1,97 @@
+Java pattern program enhances the coding skill, logic, and looping concepts.
+
+It is frequently asked in Java interviews to test the programmer's reasoning abilities. A Java pattern programme can be printed in a variety of styles.
+
+The Java pattern programme has been divided into three groups:
+Start Pattern
+Number Pattern
+Character Pattern
+
+Every time you create logic for a programme with a pattern, you should first sketch the pattern in the blocks. The pattern is well shown in the illustration.
+
+Every pattern programme contains two or more loops.The complexity of the pattern or logic determines how many loops there are.
+Both the first and second for loops are effective for the row and column, respectively. Java for loops are frequently used in pattern programmes.
+
+Syntax:
+
+for(int i=0; i<row; i++)   
+{   
+for(int j=0; j<=i; j++)   
+{   
+System.out.print("* ");   
+}   
+System.out.println(); 
+}
+
+Star Pattern:
+Example:
+public class RightTrianglePattern   
+{   
+public static void main(String args[])   
+{   
+//i for rows and j for columns      
+//row denotes the number of rows you want to print  
+int i, j, row=6;   
+//outer loop for rows  
+for(i=0; i<row; i++)   
+{   
+//inner loop for columns  
+for(j=0; j<=i; j++)   
+{   
+//prints stars   
+System.out.print("* ");   
+}   
+//throws the cursor in a new line after printing each line  
+System.out.println();   
+}   
+}   
+} 
+
+Number Pattern:
+Example:
+public class Pattern1  
+{  
+public static void main(String args[])   
+{   
+int i, j,number, n=7;   
+//loop for rows  
+for(i=0; i<n; i++)  
+{   
+number=1;   
+//loop for columns  
+for(j=0; j<=i; j++)  
+{   
+//prints num  
+System.out.print(number+ " ");   
+//incrementing the value of number   
+number++;   
+}   
+//throws the cursor at the next line after printing each row  
+System.out.println();   
+}   
+}   
+} 
+
+Character Pattern:
+Example:
+public class RightAlphabaticPattern  
+{              
+public static void main(String[] args)  
+{  
+int alphabet = 65; //ASCII value of capital A is 65  
+//inner loop for rows  
+for (int i = 0; i <= 8; i++)  
+{  
+//outer loop for columns      
+for (int j = 0; j <= i; j++)  
+{  
+//adds the value of j in the ASCII value of A and prints the corresponding alphabet  
+System.out.print((char) (alphabet + j) + " ");   
+}  
+System.out.println();  
+}  
+}  
+}  
+
+
+Thank You!!!!!
