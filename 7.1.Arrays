@@ -1,0 +1,22 @@
+Arrays:
+
+A collection of variables with similar types that are referred to as an array in Java. In Java, arrays operate differently from how they do in C/C++. 
+The following are a few key points about Java arrays. 
+
+All arrays are dynamically allocated in Java.
+
+Arrays are kept in consecutive places of contiguous memory.
+
+Since in Java arrays are objects, we may use the object attribute length to determine their length. In contrast to C/C++, where sizeof is used to determine length.
+
+Like other variables, a Java array variable can also be declared by adding [] after the data type.
+
+The array's variables are arranged in a specific sequence, and each has an index that starts at zero.
+
+An array in Java can either be a local variable, a static field, or a method argument.
+An array's size must be given using an int or short number, not a long one.
+Object is an array type's direct superclass.
+Every array type supports the Java.io and Cloneable interfaces.Serializable. 
+We can support random access to an array's elements thanks to this storage of arrays.
+The array's size cannot be changed.(once initialized).  An array reference can, however, be made to refer to another array.
+
