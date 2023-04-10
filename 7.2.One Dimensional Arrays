@@ -1,0 +1,33 @@
+One-Dimensional Arrays: 
+The type and the name are the two elements that make up an array declaration. type specifies the array's element type. 
+Each element that makes up the array has a different data type depending on the element type.
+We can generate an array of other primitive data types, such as char, float, double, etc., or user-defined data types, similarly to how we can make an array of integers. (objects of a class).
+
+Thus, the element type for the array determines what type of data the array will hold. 
+
+Syntax:
+type var-name[];
+OR
+type[] var-name;
+
+Example:
+// both are valid declarations
+int intArray[]; 
+or int[] intArray; 
+
+byte byteArray[];
+short shortsArray[];
+boolean booleanArray[];
+long longArray[];
+float floatArray[];
+double doubleArray[];
+char charArray[];
+
+// an array of references to objects of
+// the class MyClass (a class created by
+// user)
+MyClass myClassArray[]; 
+
+Object[]  ao,        // array of Object
+Collection[] ca;  // array of Collection
+                     // of unknown type
