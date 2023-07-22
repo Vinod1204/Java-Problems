@@ -1,0 +1,27 @@
+Introduction:
+Every unique subproblem should be solved only once
+
+Solving dp problems:
+.the problem can be divided into subproblems (recursive problems)
+.Overlapping : same problems are called again and again.
+
+
+Steps for DP:
+	1. Solve t with subproblems
+  2. Overlapping in subproblems
+
+
+  Optimization:
+	1. Dp state : what are we storing 
+	        dp[i] = ith fibo number
+	2. Dp expression : calculating dp state using subproblems.
+	        Eg : Dp[i]=dp[i-1]+dp[i-2];
+	3. Dp table :   Space to store all subproblems , so that we reuse them.
+	        Eg: dp[n+1] ===> size
+  4.   Code:
+            TC : (#no of dp state ) * (TC for each state)
+            SC : top down ==dp table size + (stack size)(memoizaion)
+                    bottom up : dp table size
+
+
+#Example Problems are in next file
