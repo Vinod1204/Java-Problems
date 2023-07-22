@@ -1,0 +1,125 @@
+
+Example problem:
+1.Given a positive integer A, write a program to find the Ath Fibonacci number.
+
+In a Fibonacci series, each term is the sum of the previous two terms and the first two terms of the series are 0 and 1.
+i.e. f(0) = 0 and f(1) = 1. Hence, f(2) = 1, f(3) = 2, f(4) = 3 and so on.
+
+NOTE: 0th term is 0. 1th term is 1 and so on.
+import java.util.*;
+public class Main
+{
+    
+	public static void main(String[] args) {
+	    
+		System.out.println("Hello World " + fibo(5));
+		System.out.println("Hello World " + fibonacci(5));
+	}
+	//top down
+	public static int fibo(int n)
+	{
+	    int[] dp=new int[n+1];
+	    Arrays.fill(dp,-1);
+	    if(n<=1)
+	    {
+	        return n;
+	    }
+	    if(dp[n]==-1)
+	    {
+	        return fibo(n-1)+fibo(n-2);
+	    }
+	    return dp[n];
+	}
+	//bottom up
+	public static int fibonacci(int n)
+	{
+	    int[] dp=new int[n+1];
+	    dp[0]=0;
+	    dp[1]=1;
+	    for(int i=2;i<=n;i++)
+	    {
+	        dp[i]=dp[i-1]+dp[i-2];
+	    }
+	    return dp[n];
+	}
+}
+
+2.Given an integer A. Return minimum count of numbers, sum of whose squares is equal to A.
+Minimum Number of squares:
+public int countMinSquares(int A) {
+        //Top down
+        int[] dp=new int[A+1];
+        Arrays.fill(dp,A+1);
+        if(A<=0)
+        {
+            return 0;
+        }
+        if(dp[A]==A+1)
+        {
+        for(int i=1;i*i<=A;i++)
+        {
+            dp[A]=Math.min(dp[A],countMinSquares(A-i*i)+1);
+        }
+        }
+        return dp[A];
+    }
+
+
+3.You are climbing a staircase and it takes A steps to reach the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+Return the number of distinct ways modulo 1000000007
+
+
+public class Solution {
+    public int climbStairs(int A) {
+        int[] dp=new int[A+1];
+        if(A<=2)
+        {
+            return A;
+        }
+        dp[1]=1;
+        dp[2]=2;
+        int mod=1000000007;
+        for(int i=3;i<=A;i++)
+        {
+            dp[i]=((dp[i-1])%mod+(dp[i-2])%mod)%mod;
+        }
+        return (dp[A])%mod;
+    }
+}
+
+4.You are given an array A of N integers and three integers B, C, and D.
+
+You have to find the maximum value of A[i]*B + A[j]*C + A[k]*D, where 1 <= i <= j <= k <= N.
+
+public class Solution {
+    public int solve(int[] A, int B, int C, int D) {
+        int n=A.length;
+        int[] pre_maxB=new int[n];
+        int[] pre_maxC=new int[n];
+        int[] pre_maxD=new int[n];
+        pre_maxB[0]=A[0]*B;
+        for(int i=1;i<n;i++)
+        {
+            pre_maxB[i]=Math.max(pre_maxB[i-1],A[i]*B);
+        }
+        pre_maxC[0]=pre_maxB[0]+A[0]*C;
+        for(int i=1;i<n;i++)
+        {
+            pre_maxC[i]=Math.max(pre_maxC[i-1],pre_maxB[i]+A[i]*C);
+        }
+        pre_maxD[0]=pre_maxC[0]+A[0]*D;
+        for(int i=1;i<n;i++)
+        {
+            pre_maxD[i]=Math.max(pre_maxD[i-1],pre_maxC[i]+A[i]*D);
+        }
+        int ans=Integer.MIN_VALUE;
+        for(int i=0;i<n;i++)
+        {
+            ans=Math.max(ans,pre_maxD[i]);
+        }
+        return ans;
+    }
+}
