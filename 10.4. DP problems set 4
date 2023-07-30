@@ -1,0 +1,199 @@
+Q1. Longest Common Subsequence
+Given two strings A and B. Find the longest common subsequence ( A sequence which does not need to be contiguous), which is common in both the strings.
+
+You need to return the length of such longest common subsequence.
+
+public class Solution {
+    public int solve(String A, String B) {
+        int n=A.length();
+        int m=B.length();
+        int[][] dp=new int[n][m];
+        for(int i=0;i<n;i++)
+        {
+            Arrays.fill(dp[i],-1);
+        }
+      return LCS(n-1,m-1,A,B,dp);
+    }
+    int LCS(int i,int j,String A,String B,int[][] dp)
+    {
+        if(j<0 || i<0)
+        {
+            return 0;
+        }
+        
+        if(dp[i][j]!=-1)
+        {
+            return dp[i][j];
+        }
+        if(A.charAt(i)==B.charAt(j))
+        {
+            dp[i][j]=1+LCS(i-1,j-1,A,B,dp);
+            return dp[i][j];
+        }
+        else{
+            dp[i][j]=Math.max(LCS(i,j-1,A,B,dp),LCS(i-1,j,A,B,dp));
+             return dp[i][j];
+        }
+    }
+}
+
+Q2. Longest Palindromic Subsequence
+Given a string A. Find the longest palindromic subsequence (A subsequence which does not need to be contiguous and is a palindrome).
+
+You need to return the length of longest palindromic subsequence.
+
+public class Solution {
+    public int solve(String A) {
+        StringBuilder B=new StringBuilder();
+        int n=A.length();
+        int m=A.length();
+        B.append(A);
+        int[][] dp=new int[n][m];
+        for(int i=0;i<n;i++)
+        {
+            Arrays.fill(dp[i],-1);
+        }
+        return LCS(n-1,m-1,A,B.reverse().toString(),dp);
+    }
+    int LCS(int i,int j,String A,String B,int[][] dp)
+    {
+        if(i<0 ||j<0)
+        {
+            return 0;
+        }
+        if(dp[i][j]!=-1)
+        {
+            return dp[i][j];
+        }
+        if(A.charAt(i)==B.charAt(j))
+        {
+            dp[i][j]=1+LCS(i-1,j-1,A,B,dp);
+            return dp[i][j];
+        }
+        else{
+            dp[i][j]=Math.max(LCS(i-1,j,A,B,dp),LCS(i,j-1,A,B,dp));
+            return dp[i][j];
+        }
+    }
+}
+
+Q3. Edit Distance
+
+Given two strings A and B, find the minimum number of steps required to convert A to B. (each operation is counted as 1 step.)
+
+You have the following 3 operations permitted on a word:
+
+Insert a character
+Delete a character
+Replace a character
+
+public class Solution {
+    public int minDistance(String A, String B) {
+       int n=A.length();
+       int m=B.length();
+       int[][] dp=new int[n+1][m+1];
+       for(int i=0;i<=n;i++)
+       {
+           Arrays.fill(dp[i],-1);
+       }
+       return editdist(n-1,m-1,A,B,dp);
+    }
+    int editdist(int i,int j,String A,String B,int[][] dp)
+    {
+        if(j<0)
+        {
+            return i+1;
+        }
+        if(i<0)
+        {
+            return j+1;
+        }
+        if(dp[i][j]!=-1)
+        {
+            return dp[i][j];
+        }
+        if(A.charAt(i)==B.charAt(j))
+        {
+            dp[i][j]=editdist(i-1,j-1,A,B,dp);
+            return dp[i][j];
+        }
+        else{
+            int insert=editdist(i,j-1,A,B,dp)+1;
+            int delete=editdist(i-1,j,A,B,dp)+1;
+            int replace=editdist(i-1,j-1,A,B,dp)+1;
+            dp[i][j]=Math.min(Math.min(insert,delete),replace);
+            return dp[i][j];
+        }
+    }
+}
+
+Q4. Regular Expression Match
+
+Implement wildcard pattern matching with support for ' ? ' and ' * ' for strings A and B.
+
+' ? ' : Matches any single character.
+' * ' : Matches any sequence of characters (including the empty sequence).
+The matching should cover the entire input string (not partial).
+
+public class Solution {
+    public int isMatch(final String A, final String B) {
+        StringBuilder s2=new StringBuilder();
+        s2.append(B.charAt(0));
+        for(int i=1;i<B.length();i++)
+        {
+            if(B.charAt(i)=='*' && B.charAt(i-1)=='*')
+            {
+                continue;
+            }
+            else{
+                s2.append(B.charAt(i));
+            }
+        }
+        int n=A.length();
+        int m=s2.length();
+        int[][] dp=new int[n+1][m+1];
+        for(int i=0;i<=n;i++)
+        {
+            Arrays.fill(dp[i],-1);
+        }
+        return REM(n-1,m-1,A,s2.toString(),dp);
+    }
+    int REM(int i,int j,String A,String B,int[][] dp)
+    {
+        if(i<0 && j<0)
+        {
+            return 1;
+        }
+        if(j<0 && i>=0) return 0;
+        if(i<0 && j>=0){
+            for(int k=0; k<=j; k++){
+                if(B.charAt(k)!='*')
+                    return 0;
+            }
+            return 1;
+        }
+        if(dp[i][j]!=-1)
+        {
+            return dp[i][j];
+        }
+        if(A.charAt(i)==B.charAt(j) || B.charAt(j)=='?')
+        {
+            dp[i][j]=REM(i-1,j-1,A,B,dp);
+            return dp[i][j];
+        }
+        if(B.charAt(j)=='*')
+        {
+            int take=REM(i-1,j,A,B,dp);
+            int dont=REM(i,j-1,A,B,dp);
+            if(take==1 || dont==1)
+            {
+               dp[i][j]=1; 
+            }
+            else{
+                dp[i][j]=0;
+            }
+            return dp[i][j];
+        }
+        return 0;
+    }
+}
