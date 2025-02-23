@@ -9,6 +9,7 @@ The many print functions that we employ to output statements are listed below:
 
 Java's print() function is used to show text on the console. This method receives this text as a parameter in the form of a String. With this technique, the text is printed on the console and the cursor is left where it is at the console. 
 
+
 Stream class	                 Description
 BufferedInputStream	           It is used for Buffered Input Stream.
 DataInputStream	               It contains method for reading java standard datatypes.
@@ -21,7 +22,6 @@ FileOutputStream	             This is used to write to a file.
 OutputStream	                 This is an abstract class that describe stream output.
 
 DATA TYPES:
-
 The different sizes and values that can be stored in the variable are specified by the data types. Java supports two different kinds of data types:
 
 boolean, char, byte, short, int, long, float, and double are examples of primitive data types.
@@ -37,6 +37,7 @@ int data type
 long data type
 float data type
 double data type
+
 
 OPERATORS:
 
